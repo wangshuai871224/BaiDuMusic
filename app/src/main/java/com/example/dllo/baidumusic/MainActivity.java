@@ -1,13 +1,31 @@
 package com.example.dllo.baidumusic;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.dllo.baidumusic.base.BaseActivity;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener{
+
+    private ImageView imageView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initViews() {
+        imageView = bindView(R.id.image);
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
