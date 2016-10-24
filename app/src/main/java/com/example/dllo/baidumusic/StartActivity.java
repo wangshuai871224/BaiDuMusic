@@ -18,7 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by dllo on 16/10/21.
+ * Created by WangShuai on 16/10/21.
  */
 public class StartActivity extends BaseActivity implements View.OnClickListener{
     private Button jump;

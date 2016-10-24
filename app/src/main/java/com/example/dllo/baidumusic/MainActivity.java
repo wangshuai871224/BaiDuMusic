@@ -1,22 +1,67 @@
 package com.example.dllo.baidumusic;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.dllo.baidumusic.base.BaseActivity;
+import com.example.dllo.baidumusic.dynamicfragment.DynamicFragment;
+import com.example.dllo.baidumusic.livefragment.LiveFragment;
+import com.example.dllo.baidumusic.minefragment.MineFragment;
+import com.example.dllo.baidumusic.musicfragment.MusicFragment;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private ImageView imageView;
+    private Button set;
+    private Button query;
+    private ViewPager mainVP;
+    private TabLayout mainTL;
+    private Button paly;
+    private Button next;
+    private Button palyList;
+    private LinearLayout mainLL;
+    private ArrayList<Fragment> fragments;
+    private MainAdapter adapter;
 
     @Override
     protected void initData() {
+
+        adapter = new MainAdapter(getSupportFragmentManager());
+        fragments = new ArrayList<>();
+
+        fragments.add(new MineFragment());
+        fragments.add(new MusicFragment());
+        fragments.add(new DynamicFragment());
+        fragments.add(new LiveFragment());
+
+        adapter.setFragmentBean(fragments);
+        mainVP.setAdapter(adapter);
+        mainTL.setupWithViewPager(mainVP);
 
     }
 
     @Override
     protected void initViews() {
-        imageView = bindView(R.id.image);
+
+        mainLL = bindView(R.id.main_ll);
+        mainVP = bindView(R.id.main_vp);
+        mainTL = bindView(R.id.main_tb);
+
+        set = bindView(R.id.main_set);
+        query = bindView(R.id.main_query);
+        imageView = bindView(R.id.main_image);
+        paly = bindView(R.id.main_play);
+        next = bindView(R.id.main_next);
+        palyList = bindView(R.id.main_playList);
+
+        setClick(this, mainLL, set, query, imageView, paly, next, palyList);
     }
 
     @Override
@@ -26,6 +71,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.main_set:
+                break;
+            case R.id.main_query:
+                break;
+            case R.id.main_image:
+                break;
+            case R.id.main_play:
+                break;
+            case R.id.main_next:
+                break;
+            case R.id.main_playList:
+                break;
+            case R.id.main_ll:
+                break;
 
+        }
     }
 }

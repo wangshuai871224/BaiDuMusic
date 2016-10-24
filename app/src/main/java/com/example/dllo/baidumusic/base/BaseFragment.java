@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.dllo.baidumusic.R;
 
 /**
- * Created by dllo on 16/10/21.
+ * Created by WangShuai on 16/10/21.
  */
 public abstract class BaseFragment extends Fragment{
 
@@ -58,6 +58,7 @@ public abstract class BaseFragment extends Fragment{
     protected <T extends View> T bindView(View view, int id) {
         return (T) view.findViewById(id);
     }
+
     protected abstract void initData();
 
     protected abstract void initView();
