@@ -1,4 +1,4 @@
-package com.example.dllo.baidumusic;
+package com.example.dllo.baidumusic.tools;
 
 import android.app.Application;
 import android.content.Context;

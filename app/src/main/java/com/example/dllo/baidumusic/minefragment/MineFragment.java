@@ -19,6 +19,6 @@ public class MineFragment extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.mine_fragment;
+        return R.layout.fragment_mine;
     }
 }

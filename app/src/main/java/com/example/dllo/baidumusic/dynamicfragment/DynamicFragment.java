@@ -19,6 +19,6 @@ public class DynamicFragment extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.dynamic_fragment;
+        return R.layout.fragment_dynamic;
     }
 }

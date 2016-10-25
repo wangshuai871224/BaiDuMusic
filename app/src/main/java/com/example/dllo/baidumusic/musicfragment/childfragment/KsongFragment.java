@@ -19,6 +19,6 @@ public class KsongFragment extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.ksong_fragment;
+        return R.layout.fragment_ksong;
     }
 }

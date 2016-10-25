@@ -3,7 +3,6 @@ package com.example.dllo.baidumusic.musicfragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
@@ -51,6 +50,6 @@ public class MusicFragment extends BaseFragment{
 
     @Override
     protected int getLayout() {
-        return R.layout.music_fragment;
+        return R.layout.fragment_music;
     }
 }
