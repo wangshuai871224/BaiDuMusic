@@ -3,6 +3,7 @@ package com.example.dllo.baidumusic.livefragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
 
@@ -17,6 +18,7 @@ public class LiveFragment extends BaseFragment{
     private LiveAdapter adapter;
     private ArrayList<String> arrayList;
     private GridLayoutManager manager;
+    private RecyclerViewHeader header;
 
     @Override
     protected void initData() {
@@ -26,6 +28,7 @@ public class LiveFragment extends BaseFragment{
         adapter.setStringBean(arrayList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
+        header.attachTo(recyclerView, true);
 
     }
 
@@ -35,6 +38,7 @@ public class LiveFragment extends BaseFragment{
         adapter = new LiveAdapter(getActivity());
         arrayList = new ArrayList<>();
         manager = new GridLayoutManager(getActivity(), 2);
+        header = bindView(R.id.header_recycler);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.dllo.baidumusic.musicfragment.childfragment;
+package com.example.dllo.baidumusic.musicfragment.childfragment.childfragmentadapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -55,16 +55,15 @@ public class ListAdapter extends BaseAdapter{
             viewHolder = (ListViewHolder) view.getTag();
         }
 
-        viewHolder.image.setText(strings.get(i));
         return view;
     }
 
     class ListViewHolder {
 
-        private final TextView image;
+        private final ImageView image;
 
         public ListViewHolder(View view) {
-            image = (TextView) view.findViewById(R.id.list_image);
+            image = (ImageView) view.findViewById(R.id.list_image);
         }
     }
 }

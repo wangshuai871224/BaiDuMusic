@@ -1,11 +1,10 @@
 package com.example.dllo.baidumusic.musicfragment.childfragment;
 
-import android.graphics.Bitmap;
 import android.widget.ListView;
 
 import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
-import com.example.dllo.baidumusic.livefragment.LiveAdapter;
+import com.example.dllo.baidumusic.musicfragment.childfragment.childfragmentadapter.ListAdapter;
 
 import java.util.ArrayList;
 
