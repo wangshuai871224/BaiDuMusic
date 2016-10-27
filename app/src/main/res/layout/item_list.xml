@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:id="@+id/list_item_ll">
 
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="2">
 
         <ImageView
             android:id="@+id/list_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/ic_mymusic_download_normal" />
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            />
 
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <ImageView
+            android:id="@+id/image_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:background="@mipmap/bt_artist_item_play_nor" />
+            android:src="@mipmap/bt_play_nor" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="4"
-        android:gravity="center_vertical"
+        android:layout_weight="5"
+        android:layout_marginLeft="5dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="新歌榜" />
+            android:id="@+id/new_announcement"
+            />
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -48,10 +52,24 @@
                 android:src="@mipmap/img_top_number_1" />
 
             <TextView
+                android:id="@+id/first_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="我是人" />
+                android:textSize="12dp"
+                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/first_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="12dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -66,10 +84,24 @@
                 android:src="@mipmap/img_top_number_2" />
 
             <TextView
+                android:id="@+id/second_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="我是神" />
+                android:textSize="12dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/second_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="12dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -84,20 +116,33 @@
                 android:src="@mipmap/img_top_number_3" />
 
             <TextView
+                android:id="@+id/third_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="12dp"
                 android:layout_gravity="center"
-                android:text="我是超人" />
+                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/third_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_gravity="center"
+                />
         </LinearLayout>
     </LinearLayout>
 
-    <Button
+    <ImageView
         android:id="@+id/list_more"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:background="@mipmap/bt_recsong_module_more" />
-
+        android:src="@mipmap/bt_recsong_module_more" />
 
 </LinearLayout>

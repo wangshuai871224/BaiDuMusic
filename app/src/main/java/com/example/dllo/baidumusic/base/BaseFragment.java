@@ -59,6 +59,12 @@ public abstract class BaseFragment extends Fragment{
         return (T) view.findViewById(id);
     }
 
+    protected void setClick(View.OnClickListener clickListener, View ... views ) {
+        for (View view : views) {
+            view.setOnClickListener(clickListener);
+        }
+    }
+
     protected abstract void initData();
 
     protected abstract void initView();
