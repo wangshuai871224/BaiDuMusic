@@ -13,25 +13,28 @@
         android:background="#47b3ea"
         android:orientation="horizontal">
 
-        <Button
+        <ImageView
             android:id="@+id/main_set"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@mipmap/ic_gengduo_normal" />
+            android:src="@mipmap/ic_gengduo_normal" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/main_tb"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="4" />
 
-        <Button
+        <ImageView
             android:id="@+id/main_query"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@mipmap/bt_titlebar_new_search_normal" />
+            android:src="@mipmap/bt_titlebar_new_search_normal" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
@@ -44,6 +47,7 @@
     <LinearLayout
         android:id="@+id/main_ll"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
@@ -59,29 +63,30 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="3"
             android:text="百度音乐   听到极致" />
 
-        <Button
+        <ImageView
             android:id="@+id/main_play"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/bt_minibar_play_normal" />
+            android:src="@mipmap/bt_minibar_play_normal" />
 
-        <Button
+        <ImageView
             android:id="@+id/main_next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/bt_minibar_next_normal" />
+            android:src="@mipmap/bt_minibar_next_normal" />
 
-        <Button
+        <ImageView
             android:id="@+id/main_playList"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/bt_minibar_playinglist_normal" />
+            android:src="@mipmap/bt_minibar_playinglist_normal" />
     </LinearLayout>
 
 </LinearLayout>

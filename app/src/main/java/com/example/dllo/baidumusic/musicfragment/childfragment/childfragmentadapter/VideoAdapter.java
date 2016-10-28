@@ -2,7 +2,6 @@ package com.example.dllo.baidumusic.musicfragment.childfragment.childfragmentada
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,7 @@ public class VideoAdapter extends RecyclerView.Adapter{
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.video_item, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_video, parent, false);
         VideoViewHolder viewHolder = new VideoViewHolder(view);
         return viewHolder;
     }

@@ -2,7 +2,6 @@ package com.example.dllo.baidumusic.musicfragment.childfragment.childfragmentada
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,6 @@ import android.widget.TextView;
 import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.musicfragment.childfragment.childragmentclass.SongMenuBean;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
-
-import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/26.
@@ -33,7 +30,7 @@ public class SongMenuAdapter extends RecyclerView.Adapter{
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.song_item, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_song, parent, false);
         SongListViewHolder viewHolder = new SongListViewHolder(view);
         return viewHolder;
     }

@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:id="@+id/live_image"
+        android:src="@mipmap/zhaoliying"
+        android:scaleType="fitXY"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/hot_live"/>
+        android:layout_alignBottom="@id/live_image"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/live_num"
+        android:textColor="#ffffff"
+        android:drawableLeft="@mipmap/img_live_play_people"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/live_image"
+        android:layout_alignRight="@id/live_image"
+        android:src="@mipmap/ic_live_play_normal"/>
+</RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="我是赵丽颖"
+        />
+
 
 </LinearLayout>

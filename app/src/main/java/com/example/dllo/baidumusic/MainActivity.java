@@ -19,13 +19,13 @@ import java.util.ArrayList;
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private ImageView imageView;
-    private Button set;
-    private Button query;
+    private ImageView set;
+    private ImageView query;
     private ViewPager mainVP;
     private TabLayout mainTL;
-    private Button paly;
-    private Button next;
-    private Button palyList;
+    private ImageView play;
+    private ImageView next;
+    private ImageView playList;
     private LinearLayout mainLL;
     private ArrayList<Fragment> fragments;
     private MainAdapter adapter;
@@ -57,11 +57,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         set = bindView(R.id.main_set);
         query = bindView(R.id.main_query);
         imageView = bindView(R.id.main_image);
-        paly = bindView(R.id.main_play);
+        play = bindView(R.id.main_play);
         next = bindView(R.id.main_next);
-        palyList = bindView(R.id.main_playList);
+        playList = bindView(R.id.main_playList);
 
-        setClick(this, mainLL, set, query, imageView, paly, next, palyList);
+        setClick(this, mainLL, set, query, imageView, play, next, playList);
     }
 
     @Override

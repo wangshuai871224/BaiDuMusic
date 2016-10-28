@@ -38,7 +38,7 @@ public class LiveAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         LiveViewHolder viewHolder = (LiveViewHolder) holder;
-        viewHolder.hotLive.setText(stringBean.get(position).toString());
+
     }
 
     @Override
@@ -48,11 +48,10 @@ public class LiveAdapter extends RecyclerView.Adapter{
 
     class LiveViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView hotLive;
 
         public LiveViewHolder(View itemView) {
             super(itemView);
-            hotLive = (TextView) itemView.findViewById(R.id.hot_live);
+
         }
     }
 }
