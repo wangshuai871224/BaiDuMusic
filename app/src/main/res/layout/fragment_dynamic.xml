@@ -4,43 +4,74 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/default_topic_detail_head" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_margin="15dp"
-            android:text="热门话题" />
+        android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/image_more"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/bt_recsong_module_more" />
+            android:src="@mipmap/default_topic_detail_head" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="315dp"
-            android:text="更多" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:text="热门话题" />
+
+            <ImageView
+                android:id="@+id/image_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/bt_recsong_module_more" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="315dp"
+                android:text="更多" />
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:scrollbars="none"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="70dp">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/default_topic_detail_head"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/zhaoliying"
+                />
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/default_topic_detail_head"/>
+           </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/dynamic_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="wrap_content"></ListView>
 
 </LinearLayout>

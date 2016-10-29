@@ -10,10 +10,10 @@ import com.example.dllo.baidumusic.fragmentclass.DynamicBean;
 /**
  * Created by dllo on 16/10/28.
  */
-public class DynamicAdapter extends BaseAdapter{
+public class DynamicListViewAdapter extends BaseAdapter{
     Context mContext;
     DynamicBean beans;
-    public DynamicAdapter(Context mContext) {
+    public DynamicListViewAdapter(Context mContext) {
         this.mContext = mContext;
     }
 

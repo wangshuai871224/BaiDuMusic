@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.baidumusic.R;
+import com.example.dllo.baidumusic.fragmentclass.LiveBean;
+import com.example.dllo.baidumusic.tools.VolleySingleton;
 
 import java.util.ArrayList;
 
@@ -18,14 +21,15 @@ import java.util.ArrayList;
 public class LiveAdapter extends RecyclerView.Adapter{
 
     Context mContext;
-    ArrayList<String> stringBean;
+    LiveBean beans;
 
     public LiveAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
-    public void setStringBean(ArrayList<String> stringBean) {
-        this.stringBean = stringBean;
+    public void setBeans(LiveBean beans) {
+        this.beans = beans;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -38,19 +42,30 @@ public class LiveAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         LiveViewHolder viewHolder = (LiveViewHolder) holder;
+        viewHolder.nickName.setText(beans.getData().getData().get(position).getNickname());
+        viewHolder.userCount.setText(String.valueOf(beans.getData().getData().get(position).getUsercount()));
+        VolleySingleton.getInstance().getImage(beans.getData().getData().get(position).getLiveimg()
+                , viewHolder.image);
 
     }
 
     @Override
     public int getItemCount() {
-        return stringBean.size();
+        return beans == null ? 0 :beans.getData().getData().size();
     }
 
     class LiveViewHolder extends RecyclerView.ViewHolder {
 
 
+        private TextView nickName;
+        private TextView userCount;
+        private ImageView image;
+
         public LiveViewHolder(View itemView) {
             super(itemView);
+            nickName = (TextView) itemView.findViewById(R.id.nick_name);
+            userCount = (TextView) itemView.findViewById(R.id.live_num);
+            image = (ImageView) itemView.findViewById(R.id.live_img);
 
         }
     }

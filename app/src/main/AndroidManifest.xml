@@ -13,7 +13,6 @@
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity android:name=".MainActivity"
                   android:theme="@style/CustomTitle">
-
         </activity>
         <activity android:name=".StartActivity">
             <intent-filter>

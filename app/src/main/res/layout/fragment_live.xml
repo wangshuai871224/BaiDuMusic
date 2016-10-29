@@ -206,11 +206,13 @@
                     android:text="热门直播" />
 
                 <LinearLayout
+                    android:id="@+id/live_ll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
 
                     <TextView
+                        android:id="@+id/live_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="280dp"
