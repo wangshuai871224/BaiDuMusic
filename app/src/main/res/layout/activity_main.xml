@@ -12,12 +12,14 @@
         android:layout_height="0dp"
         android:layout_weight="9"
         >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!--<include layout="@layout/unitl_home"/>-->
+            <include
+                android:id="@+id/include_gone"
+                layout="@layout/util_home"
+                android:visibility="gone"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

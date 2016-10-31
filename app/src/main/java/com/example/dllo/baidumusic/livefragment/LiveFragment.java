@@ -1,11 +1,12 @@
 package com.example.dllo.baidumusic.livefragment;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -13,11 +14,8 @@ import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
 import com.example.dllo.baidumusic.fragmentclass.LiveBean;
-import com.example.dllo.baidumusic.musicfragment.childfragment.childragmentclass.ListBean;
 import com.example.dllo.baidumusic.tools.GsonRequest;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
-
-import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/10/24.
@@ -70,7 +68,12 @@ public class LiveFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), LiveMoreActivity.class);
-        startActivity(intent);
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.replace_fragment, new LiveMoreFragment())
+                .addToBackStack(null);
+        transaction.commit();
     }
+
+
 }

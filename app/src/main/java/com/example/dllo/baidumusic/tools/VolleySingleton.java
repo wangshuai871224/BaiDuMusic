@@ -1,5 +1,7 @@
 package com.example.dllo.baidumusic.tools;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.android.volley.Request;
@@ -44,6 +46,10 @@ public class VolleySingleton {
 
     // 请求图片
     public void getImage(String url, ImageView imageView) {
+        Log.d("VolleySingleton", url);
+        if(TextUtils.isEmpty(url)){
+            Log.d("VolleySingleton", "空");
+        }
 
         mImageLoader.get(url, ImageLoader.getImageListener(imageView, R.mipmap.ic_launcher, R.mipmap.ic_launcher));
 //        mImageLoader.get(url, new AnimImageListener(imageView));

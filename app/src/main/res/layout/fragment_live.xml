@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/live_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"></android.support.v7.widget.RecyclerView>
+
     <com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader
         android:id="@+id/header_recycler"
         android:layout_width="match_parent"
@@ -227,13 +233,6 @@
             </LinearLayout>
         </LinearLayout>
     </com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader>
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/live_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|top"></android.support.v7.widget.RecyclerView>
 
 
 </FrameLayout>

@@ -79,6 +79,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 transaction.replace(R.id.replace_fragment, new FragmentSet());
                 transaction.commit();
                 break;
+
             case R.id.main_query:
                 break;
             case R.id.main_image:
