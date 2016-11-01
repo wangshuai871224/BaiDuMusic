@@ -74,7 +74,6 @@ public class VolleySingleton {
 //            mImageView.setAnimation(alphaAnimation);
 //            alphaAnimation.start();
 //        }
-//
 //        @Override
 //        public void onErrorResponse(VolleyError error) {
 //            mImageView.setImageResource(R.mipmap.ic_launcher);

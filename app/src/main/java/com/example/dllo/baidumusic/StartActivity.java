@@ -51,8 +51,10 @@ public class StartActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        click = false;
+
         startActivity(intent);
+        finish();
+        timer.cancel();
     }
 
 
@@ -64,9 +66,9 @@ public class StartActivity extends BaseActivity implements View.OnClickListener{
 
         @Override
         public void onFinish() {
-            if (click) {
+
                 startActivity(intent);
-            }
+
         }
     };
 

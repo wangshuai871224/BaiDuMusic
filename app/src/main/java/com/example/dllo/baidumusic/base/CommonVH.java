@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dllo.baidumusic.R;
+import com.example.dllo.baidumusic.tools.VolleySingleton;
 
 /**
  * Created by WangShuai on 16/10/31.
@@ -87,6 +88,7 @@ public class CommonVH extends RecyclerView.ViewHolder{
 
     public CommonVH setImage(int id, String url) {
         ImageView imageView = getView(id);
+        VolleySingleton.getInstance().getImage(url, imageView);
         //TODO 网络请求图片
         return this;
     }

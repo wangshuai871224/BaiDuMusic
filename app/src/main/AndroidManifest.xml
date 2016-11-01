@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".musicfragment.childfragment.childactivity.NewSongActivity"/>
+        <activity android:name=".music.childfragment.childactivity.NewSongActivity"/>
     </application>
 
 </manifest>

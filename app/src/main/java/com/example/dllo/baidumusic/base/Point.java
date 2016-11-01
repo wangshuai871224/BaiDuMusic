@@ -12,7 +12,7 @@ import android.view.View;
  */
 public class Point extends View{
 
-    private int r = 20;
+    private int r = 5;
     private boolean isSelected = false;
 
     public Point(Context context) {

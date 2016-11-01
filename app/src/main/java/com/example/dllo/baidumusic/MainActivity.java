@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.dllo.baidumusic.base.BaseActivity;
-import com.example.dllo.baidumusic.dynamicfragment.DynamicFragment;
-import com.example.dllo.baidumusic.livefragment.LiveFragment;
-import com.example.dllo.baidumusic.minefragment.MineFragment;
-import com.example.dllo.baidumusic.musicfragment.MusicFragment;
+import com.example.dllo.baidumusic.dynamic.DynamicFragment;
+import com.example.dllo.baidumusic.live.LiveFragment;
+import com.example.dllo.baidumusic.mine.MineFragment;
+import com.example.dllo.baidumusic.music.MusicFragment;
 
 import java.util.ArrayList;
 
