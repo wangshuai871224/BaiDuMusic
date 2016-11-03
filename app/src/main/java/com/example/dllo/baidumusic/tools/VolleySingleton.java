@@ -46,9 +46,9 @@ public class VolleySingleton {
 
     // 请求图片
     public void getImage(String url, ImageView imageView) {
-        Log.d("VolleySingleton", url);
+//        Log.d("VolleySingleton", url);
         if(TextUtils.isEmpty(url)){
-            Log.d("VolleySingleton", "空");
+//            Log.d("VolleySingleton", "空");
         }
 
         mImageLoader.get(url, ImageLoader.getImageListener(imageView, R.mipmap.ic_launcher, R.mipmap.ic_launcher));

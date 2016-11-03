@@ -1,10 +1,12 @@
-package com.example.dllo.baidumusic;
+package com.example.dllo.baidumusic.fragment;
 
 
 import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.dllo.baidumusic.MainActivity;
+import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
 
 

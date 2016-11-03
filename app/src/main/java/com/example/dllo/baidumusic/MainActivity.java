@@ -11,13 +11,15 @@ import android.widget.LinearLayout;
 
 import com.example.dllo.baidumusic.base.BaseActivity;
 import com.example.dllo.baidumusic.dynamic.DynamicFragment;
+import com.example.dllo.baidumusic.fragment.FragmentSet;
+import com.example.dllo.baidumusic.fragment.PlayListFragment;
 import com.example.dllo.baidumusic.live.LiveFragment;
 import com.example.dllo.baidumusic.mine.MineFragment;
 import com.example.dllo.baidumusic.music.MusicFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private ImageView imageView;
     private ImageView set;
@@ -30,6 +32,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private LinearLayout mainLL;
     private ArrayList<Fragment> fragments;
     private MainAdapter adapter;
+    private FragmentManager manager;
+    private PlayListFragment playListFragment;
+    private boolean isVisible = true;
 
     @Override
     protected void initData() {
@@ -62,6 +67,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         next = bindView(R.id.main_next);
         playList = bindView(R.id.main_playList);
 
+        playListFragment = new PlayListFragment();
+        manager = getSupportFragmentManager();
+
+
         setClick(this, mainLL, set, query, imageView, play, next, playList);
     }
 
@@ -72,14 +81,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        switch (view.getId()) {
             case R.id.main_set:
-                FragmentManager manager = getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.replace_fragment, new FragmentSet());
                 transaction.commit();
                 break;
-
             case R.id.main_query:
                 break;
             case R.id.main_image:
@@ -89,10 +97,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.main_next:
                 break;
             case R.id.main_playList:
+                playList();
                 break;
             case R.id.main_ll:
+                mainLL.getBackground().setAlpha(1 / 2);
                 break;
 
         }
+    }
+
+    public void playList(){
+        FragmentTransaction transaction = manager.beginTransaction();
+        if (isVisible) {
+            transaction.add(R.id.replace_fragment, playListFragment);
+        } else {
+            transaction.remove(playListFragment);
+        }
+        isVisible = !isVisible;
+        transaction.commit();
     }
 }

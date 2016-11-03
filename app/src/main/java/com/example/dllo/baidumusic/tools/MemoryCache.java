@@ -33,6 +33,7 @@ public class MemoryCache implements ImageLoader.ImageCache{
     }
     @Override
     public void putBitmap(String url, Bitmap bitmap) {
+        //TODO  bitmap.setConfig(Bitmap.Config.RGB_565);
         mCache.put(url, bitmap);
     }
 }

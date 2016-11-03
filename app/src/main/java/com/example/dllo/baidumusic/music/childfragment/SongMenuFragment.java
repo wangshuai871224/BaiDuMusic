@@ -1,7 +1,10 @@
 package com.example.dllo.baidumusic.music.childfragment;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -11,43 +14,53 @@ import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
 import com.example.dllo.baidumusic.music.childfragment.adapter.SongMenuAdapter;
 import com.example.dllo.baidumusic.bean.SongMenuBean;
+import com.example.dllo.baidumusic.tools.EndLessOnScrollListener;
 import com.example.dllo.baidumusic.tools.GsonRequest;
+import com.example.dllo.baidumusic.tools.URLValues;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by dllo on 16/10/24.
  */
-public class SongMenuFragment extends BaseFragment{
+public class SongMenuFragment extends BaseFragment {
 
     private TextView hot;
     private TextView news;
     private RecyclerView songRecycler;
     private SongMenuAdapter adapter;
     private LinearLayout songList;
-    private GridLayoutManager manager;
+    private RecyclerView.LayoutManager manager;
     private String url;
+    private SwipeRefreshLayout songRefresh;
+    int i = 0;
 
     @Override
     protected void initData() {
 
-        GsonRequest<SongMenuBean> gsonRequest = new GsonRequest<SongMenuBean>(SongMenuBean.class, url, new Response.Listener<SongMenuBean>() {
+        // 第一次加载都是新数据, 给true
+        gsonRequest(url, true);
+        songRecycler.setAdapter(adapter);
+        songRecycler.setLayoutManager(manager);
+        songRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onResponse(SongMenuBean response) {
+            public void onRefresh() {
 
-                adapter.setBean(response);
-                songRecycler.setAdapter(adapter);
-                songRecycler.setLayoutManager(manager);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
+                songRefresh.setRefreshing(false);
             }
         });
 
-        VolleySingleton.getInstance().addRequest(gsonRequest);
-
+        songRecycler.addOnScrollListener(new EndLessOnScrollListener(manager) {
+            @Override
+            protected void onLoadMore(int currentPage) {
+                // 每次加载都是一个新的url, 然后在adapter中加入到集合里
+                if (i < URLValues.SONG_MENU_URL.length - 1) {
+                    gsonRequest(URLValues.SONG_MENU_URL[i + 1], false);
+                    i++;
+                }
+            }
+        });
     }
 
     @Override
@@ -57,14 +70,35 @@ public class SongMenuFragment extends BaseFragment{
         hot = bindView(R.id.tv_hot);
         news = bindView(R.id.tv_new);
         songRecycler = bindView(R.id.song_recycler);
+        songRefresh = bindView(R.id.song_refresh);
         adapter = new SongMenuAdapter(getActivity());
+        // manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         manager = new GridLayoutManager(mContext, 2);
-        url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=huwei&operator=0&method=baidu.ting.ugcdiy.getChanneldiy&param=zAR3AtUclOQ0EXJqn2NjoTsvlF2fNfoJ%2BA328%2Fjq24dX8vwkHVTOtCDtHfbTu6jByVf1Jzg0o3XAKo6r8MdNaEmTVsm4c36AC8f%2FbdwzSl2fJiQQ6m82IIVHdAojOc55&timestamp=1477530674&sign=b1bebdbb76b2088e511b3b16994826d6";
+        url = URLValues.SONG_MENU_URL[0];
 
     }
 
     @Override
     protected int getLayout() {
         return R.layout.fragment_songmenu;
+    }
+
+    public void gsonRequest(String url, final boolean isRefresh) {
+
+        GsonRequest<SongMenuBean> gsonRequest = new GsonRequest<SongMenuBean>(SongMenuBean.class, url, new Response.Listener<SongMenuBean>() {
+            @Override
+            public void onResponse(SongMenuBean response) {
+
+                adapter.setBean(response, isRefresh);
+                EventBus.getDefault().post(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        VolleySingleton.getInstance().addRequest(gsonRequest);
     }
 }
