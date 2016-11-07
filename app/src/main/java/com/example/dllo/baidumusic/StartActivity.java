@@ -53,12 +53,11 @@ public class StartActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View view) {
 
         startActivity(intent);
-        finish();
         timer.cancel();
     }
 
 
-    private CountDownTimer timer = new CountDownTimer(6000, 1000) {
+    private CountDownTimer timer = new CountDownTimer(2000, 1000) {
         @Override
         public void onTick(long l) {
              String time = l/1000 + "";

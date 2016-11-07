@@ -1,4 +1,4 @@
-package com.example.dllo.baidumusic.fragment;
+package com.example.dllo.baidumusic.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;

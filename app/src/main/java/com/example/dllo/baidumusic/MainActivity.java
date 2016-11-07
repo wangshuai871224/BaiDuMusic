@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,13 +14,14 @@ import com.example.dllo.baidumusic.base.BaseActivity;
 import com.example.dllo.baidumusic.dynamic.DynamicFragment;
 import com.example.dllo.baidumusic.fragment.FragmentSet;
 import com.example.dllo.baidumusic.fragment.PlayListFragment;
+import com.example.dllo.baidumusic.listener.ReplaceListener;
 import com.example.dllo.baidumusic.live.LiveFragment;
 import com.example.dllo.baidumusic.mine.MineFragment;
 import com.example.dllo.baidumusic.music.MusicFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener,ReplaceListener{
 
     private ImageView imageView;
     private ImageView set;
@@ -70,7 +72,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         playListFragment = new PlayListFragment();
         manager = getSupportFragmentManager();
 
-
         setClick(this, mainLL, set, query, imageView, play, next, playList);
     }
 
@@ -102,7 +103,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_ll:
                 mainLL.getBackground().setAlpha(1 / 2);
                 break;
-
         }
     }
 
@@ -114,6 +114,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             transaction.remove(playListFragment);
         }
         isVisible = !isVisible;
+        transaction.commit();
+    }
+
+    // 实现接口  implements
+    @Override
+    public void onReplace(Fragment fragment) {
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.replace_fragment, fragment).addToBackStack(null);
         transaction.commit();
     }
 }

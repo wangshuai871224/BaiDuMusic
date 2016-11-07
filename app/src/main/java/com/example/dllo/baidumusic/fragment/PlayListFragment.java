@@ -5,8 +5,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.example.dllo.baidumusic.MainActivity;
-import com.example.dllo.baidumusic.MainAdapter;
 import com.example.dllo.baidumusic.R;
+import com.example.dllo.baidumusic.adapter.PlayListAdapter;
 import com.example.dllo.baidumusic.base.BaseFragment;
 
 import java.util.ArrayList;

@@ -126,13 +126,9 @@ public class RecommendFragment extends BaseFragment{
         for (int i = 0; i < carouselAdapter.getImgCount(); i++) {
             Point point = new Point(getActivity());
             points.add(point);// 加到集合里
-//            LinearLayout.LayoutParams layoutParams
-//                    = new LinearLayout.LayoutParams(0
-//                    , ViewGroup.LayoutParams.MATCH_PARENT
-//                    ,1); // 宽,高,权重
 
             LinearLayout.LayoutParams layoutParams
-                    = new LinearLayout.LayoutParams(30, 30);
+                    = new LinearLayout.LayoutParams(30, 30);// 宽,高,权重
             mLinearLayout.addView(point, layoutParams);
         }
     }

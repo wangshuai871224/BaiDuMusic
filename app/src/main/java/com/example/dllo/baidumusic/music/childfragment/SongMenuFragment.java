@@ -72,7 +72,6 @@ public class SongMenuFragment extends BaseFragment {
         songRecycler = bindView(R.id.song_recycler);
         songRefresh = bindView(R.id.song_refresh);
         adapter = new SongMenuAdapter(getActivity());
-        // manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         manager = new GridLayoutManager(mContext, 2);
         url = URLValues.SONG_MENU_URL[0];
 
@@ -90,7 +89,7 @@ public class SongMenuFragment extends BaseFragment {
             public void onResponse(SongMenuBean response) {
 
                 adapter.setBean(response, isRefresh);
-                EventBus.getDefault().post(response);
+
             }
         }, new Response.ErrorListener() {
             @Override

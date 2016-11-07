@@ -5,6 +5,4 @@ package com.example.dllo.baidumusic.bean;
  */
 public class DynamicBean {
 
-
-
 }
