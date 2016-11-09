@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.dllo.baidumusic.base.BaseActivity;
+import com.example.dllo.baidumusic.service.MusicPlayService;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +43,9 @@ public class StartActivity extends BaseActivity implements View.OnClickListener{
         imageView = bindView(R.id.image_start);
         jump = bindView(R.id.time_start);
         setClick(this, jump);
+
+        Intent intent = new Intent(StartActivity.this, MusicPlayService.class);
+        startService(intent);
     }
 
     @Override

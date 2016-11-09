@@ -30,6 +30,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.lang.reflect.GenericArrayType;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -97,9 +98,8 @@ public class PlayFragment extends BaseFragment{
     public void eventBusBean(EventBusBean eventBusBean) {
         url = URLValues.MUSIC_PLAYLIST_LIST_FRONT + eventBusBean.getUrl()
                 + URLValues.MUSIC_PLAYLIST_LIST_BEHIND;
+        Log.d("PlayFragment", url);
         commond();
-
-
     }
 
     public void commond() {
@@ -118,6 +118,7 @@ public class PlayFragment extends BaseFragment{
                     ContentBean bean = new ContentBean();
                     bean.setTitle(response.getContent().get(i).getTitle());
                     bean.setAuthor(response.getContent().get(i).getAuthor());
+                    bean.setSongId(response.getContent().get(i).getSong_id());
                     arrayList.add(bean);
                 }
                 adapter.setBeans(arrayList);

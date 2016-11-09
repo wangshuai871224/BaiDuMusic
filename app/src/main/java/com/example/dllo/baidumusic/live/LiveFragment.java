@@ -14,6 +14,7 @@ import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
 import com.example.dllo.baidumusic.bean.LiveBean;
 import com.example.dllo.baidumusic.tools.GsonRequest;
+import com.example.dllo.baidumusic.tools.URLValues;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
 
 /**
@@ -25,7 +26,7 @@ public class LiveFragment extends BaseFragment implements View.OnClickListener {
     private LiveAdapter adapter;
     private GridLayoutManager manager;
     private RecyclerViewHeader header;
-    private String url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=huwei&operator=0&method=baidu.ting.show.live&page_no=1&page_size=40";
+    private String url = URLValues.LIVE_MORE_URL;
     private TextView more;
 
     @Override

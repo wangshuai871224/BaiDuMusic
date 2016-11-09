@@ -48,6 +48,10 @@ public class GsonRequest<T> extends Request<T>{
         } catch (UnsupportedEncodingException e) {
             parsed = new String(response.data);
         }
+        if(parsed.startsWith("(")){
+            parsed = parsed.replace("(","");
+            parsed = parsed.replace(");","");
+        }
         // 解析
         T t = mGson.fromJson(parsed, mClass);
         return Response.success(t,HttpHeaderParser.parseCacheHeaders(response));

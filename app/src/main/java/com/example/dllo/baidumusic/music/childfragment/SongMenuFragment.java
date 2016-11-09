@@ -3,8 +3,6 @@ package com.example.dllo.baidumusic.music.childfragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,12 +12,10 @@ import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.BaseFragment;
 import com.example.dllo.baidumusic.music.childfragment.adapter.SongMenuAdapter;
 import com.example.dllo.baidumusic.bean.SongMenuBean;
-import com.example.dllo.baidumusic.tools.EndLessOnScrollListener;
+import com.example.dllo.baidumusic.listener.EndLessOnScrollListener;
 import com.example.dllo.baidumusic.tools.GsonRequest;
 import com.example.dllo.baidumusic.tools.URLValues;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
-
-import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by dllo on 16/10/24.

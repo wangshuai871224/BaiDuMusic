@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".music.childfragment.childactivity.NewSongActivity"/>
+        <service android:name=".service.MusicPlayService"/>
     </application>
 
 </manifest>

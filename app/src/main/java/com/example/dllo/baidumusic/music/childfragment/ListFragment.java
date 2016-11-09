@@ -13,6 +13,7 @@ import com.example.dllo.baidumusic.music.childfragment.childactivity.NewSongActi
 import com.example.dllo.baidumusic.music.childfragment.adapter.ListAdapter;
 import com.example.dllo.baidumusic.bean.ListBean;
 import com.example.dllo.baidumusic.tools.GsonRequest;
+import com.example.dllo.baidumusic.tools.URLValues;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
 
 /**
@@ -22,7 +23,7 @@ public class ListFragment extends BaseFragment implements AdapterView.OnItemClic
 
     private ListView listView;
     private ListAdapter adapter;
-    private String url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=huwei&operator=0&method=baidu.ting.billboard.billCategory&format=json&kflag=2";
+    private String url = URLValues.LIST_URL;
 
 
     @Override

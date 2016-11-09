@@ -14,6 +14,7 @@ import com.example.dllo.baidumusic.base.Point;
 import com.example.dllo.baidumusic.bean.RecommendBean;
 import com.example.dllo.baidumusic.music.childfragment.adapter.CarouselAdapter;
 import com.example.dllo.baidumusic.tools.GsonRequest;
+import com.example.dllo.baidumusic.tools.URLValues;
 import com.example.dllo.baidumusic.tools.VolleySingleton;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class RecommendFragment extends BaseFragment{
 
     private ViewPager carousel;
     private CarouselAdapter carouselAdapter;
-    private String url = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=1382d&operator=0&method=baidu.ting.plaza.index&cuid=90AE6B089CD064D03DDF18681495AC77";
+    private String url = URLValues.RECOMMEND_URL;
     private String[] pics;
     private Handler mHandler = new Handler() {
         @Override
@@ -49,7 +50,7 @@ public class RecommendFragment extends BaseFragment{
             @Override
             public void onResponse(RecommendBean response) {
 
-                Log.d("RecommendFragment", response.getResult().getFocus().getResult().get(1).getRandpic());
+
                 pics = new String[]{response.getResult().getFocus().getResult().get(0).getRandpic(),
                                  response.getResult().getFocus().getResult().get(1).getRandpic(),
                                  response.getResult().getFocus().getResult().get(2).getRandpic(),

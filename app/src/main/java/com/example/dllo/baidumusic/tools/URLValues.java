@@ -12,8 +12,13 @@ public final class URLValues {
     public static final String MUSIC_PLAYLIST_LIST_FRONT = "http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.diy.gedanInfo&from=ios&listid=";
     public static final String MUSIC_PLAYLIST_LIST_BEHIND = "&version=5.2.3&from=ios&channel=appstore";
 
+    public static final String MUSIC_PLAY_FRONT = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=webapp_music&method=baidu.ting.song.play&format=json&callback=&songid=";
 
+    public static final String MUSIC_PLAY_BEHIND = "&_=1413017198449";
 
+    public static final String LIVE_MORE_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=huwei&operator=0&method=baidu.ting.show.live&page_no=1&page_size=40";
 
+    public static final String LIST_URL= "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=huwei&operator=0&method=baidu.ting.billboard.billCategory&format=json&kflag=2";
 
+    public static final String RECOMMEND_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.9.0.0&channel=1382d&operator=0&method=baidu.ting.plaza.index&cuid=90AE6B089CD064D03DDF18681495AC77";
 }

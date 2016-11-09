@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.dllo.baidumusic.adapter.MainAdapter;
 import com.example.dllo.baidumusic.base.BaseActivity;
 import com.example.dllo.baidumusic.dynamic.DynamicFragment;
 import com.example.dllo.baidumusic.fragment.FragmentSet;
@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     private FragmentManager manager;
     private PlayListFragment playListFragment;
     private boolean isVisible = true;
+    private MusicFragment musicFragment;
 
     @Override
     protected void initData() {
@@ -44,14 +45,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
         adapter = new MainAdapter(getSupportFragmentManager());
         fragments = new ArrayList<>();
 
+        musicFragment = new MusicFragment();
         fragments.add(new MineFragment());
-        fragments.add(new MusicFragment());
+        fragments.add(musicFragment);
         fragments.add(new DynamicFragment());
         fragments.add(new LiveFragment());
 
         adapter.setFragmentBean(fragments);
         mainVP.setAdapter(adapter);
         mainTL.setupWithViewPager(mainVP);
+
+
 
     }
 
@@ -61,7 +65,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
         mainLL = bindView(R.id.main_ll);
         mainVP = bindView(R.id.main_vp);
         mainTL = bindView(R.id.main_tb);
-
         set = bindView(R.id.main_set);
         query = bindView(R.id.main_query);
         imageView = bindView(R.id.main_image);
@@ -71,13 +74,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
 
         playListFragment = new PlayListFragment();
         manager = getSupportFragmentManager();
-
         setClick(this, mainLL, set, query, imageView, play, next, playList);
+
     }
 
     @Override
     protected int getLayout() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
@@ -90,6 +98,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
                 transaction.commit();
                 break;
             case R.id.main_query:
+
                 break;
             case R.id.main_image:
                 break;
@@ -121,6 +130,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     @Override
     public void onReplace(Fragment fragment) {
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.hide(musicFragment);
         transaction.add(R.id.replace_fragment, fragment).addToBackStack(null);
         transaction.commit();
     }

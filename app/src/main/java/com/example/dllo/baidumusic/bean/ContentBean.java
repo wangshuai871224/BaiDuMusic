@@ -6,6 +6,15 @@ package com.example.dllo.baidumusic.bean;
 public class ContentBean {
     private String title;
     private String author;
+    private String songId;
+
+    public String getSongId() {
+        return songId;
+    }
+
+    public void setSongId(String songId) {
+        this.songId = songId;
+    }
 
     public String getTitle() {
         return title;

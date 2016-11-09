@@ -109,8 +109,7 @@ public class SongMenuAdapter extends RecyclerView.Adapter implements View.OnClic
         switch (view.getId()) {
             case R.id.song_play:
                 //TODO 点击播放音乐
-                Intent intent = new Intent(mContext, MusicPlayService.class);
-                mContext.startService(intent);
+
                 break;
         }
     }

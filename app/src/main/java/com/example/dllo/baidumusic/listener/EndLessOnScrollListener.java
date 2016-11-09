@@ -1,4 +1,4 @@
-package com.example.dllo.baidumusic.tools;
+package com.example.dllo.baidumusic.listener;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
