@@ -6,6 +6,8 @@ import android.widget.BaseAdapter;
 
 import com.example.dllo.baidumusic.R;
 import com.example.dllo.baidumusic.base.CommonVH;
+import com.example.dllo.baidumusic.bean.ContentBean;
+import com.example.dllo.baidumusic.tools.URLValues;
 
 import java.util.ArrayList;
 
@@ -13,11 +15,13 @@ import java.util.ArrayList;
  * Created by dllo on 16/11/3.
  */
 public class PlayListAdapter extends BaseAdapter{
-    ArrayList<String> arrayList;
 
-    public void setArrayList(ArrayList<String> arrayList) {
+//    ArrayList<String> arrayList;
+    private ArrayList<ContentBean> arrayList;
+    private String url;
+
+    public void setArrayList(ArrayList<ContentBean> arrayList) {
         this.arrayList = arrayList;
-        notifyDataSetChanged();
     }
 
     @Override
@@ -38,7 +42,17 @@ public class PlayListAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         CommonVH commonVH = CommonVH.getViewHolder(view, viewGroup, R.layout.item_paly_list);
-        commonVH.setText(R.id.paly_list_people, arrayList.get(i));
+        commonVH.setText(R.id.play_list_name, arrayList.get(i).getTitle())
+                 .setText(R.id.paly_list_people,arrayList.get(i).getAuthor());
+
+        url = URLValues.MUSIC_PLAY_FRONT + arrayList.get(i).getSongId() + URLValues.MUSIC_PLAY_BEHIND;
+
+        commonVH.setItemClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO 把该音乐给播放器赋值(图片, 歌词等)
+            }
+        });
 
         return commonVH.getItemView();
     }

@@ -5,12 +5,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.dllo.baidumusic.adapter.MainAdapter;
 import com.example.dllo.baidumusic.base.BaseActivity;
+import com.example.dllo.baidumusic.bean.StateBean;
 import com.example.dllo.baidumusic.dynamic.DynamicFragment;
 import com.example.dllo.baidumusic.fragment.FragmentSet;
 import com.example.dllo.baidumusic.fragment.PlayListFragment;
@@ -18,6 +20,10 @@ import com.example.dllo.baidumusic.listener.ReplaceListener;
 import com.example.dllo.baidumusic.live.LiveFragment;
 import com.example.dllo.baidumusic.mine.MineFragment;
 import com.example.dllo.baidumusic.music.MusicFragment;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
@@ -42,6 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     @Override
     protected void initData() {
 
+//        EventBus.getDefault().register(this);
         adapter = new MainAdapter(getSupportFragmentManager());
         fragments = new ArrayList<>();
 
@@ -61,6 +68,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
 
     @Override
     protected void initViews() {
+
 
         mainLL = bindView(R.id.main_ll);
         mainVP = bindView(R.id.main_vp);
@@ -86,6 +94,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     @Override
     protected void onDestroy() {
         super.onDestroy();
+//        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -98,11 +107,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
                 transaction.commit();
                 break;
             case R.id.main_query:
-
                 break;
             case R.id.main_image:
                 break;
             case R.id.main_play:
+
+//                    play.setImageResource(R.mipmap.bt_minibar_pause_normal);
+
+//                    play.setImageResource(R.mipmap.bt_minibar_play_normal);
+
+
                 break;
             case R.id.main_next:
                 break;
@@ -114,6 +128,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
                 break;
         }
     }
+
+
+
 
     public void playList(){
         FragmentTransaction transaction = manager.beginTransaction();

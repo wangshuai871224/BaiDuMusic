@@ -98,11 +98,11 @@ public class PlayFragment extends BaseFragment{
     public void eventBusBean(EventBusBean eventBusBean) {
         url = URLValues.MUSIC_PLAYLIST_LIST_FRONT + eventBusBean.getUrl()
                 + URLValues.MUSIC_PLAYLIST_LIST_BEHIND;
-        Log.d("PlayFragment", url);
-        commond();
+//        Log.d("PlayFragment", url);
+        commond(url);
     }
 
-    public void commond() {
+    public void commond(String url) {
         GsonRequest<MusicListChildBean> gsonRequest = new GsonRequest<MusicListChildBean>(MusicListChildBean.class
                 , url, new Response.Listener<MusicListChildBean>() {
             @Override
