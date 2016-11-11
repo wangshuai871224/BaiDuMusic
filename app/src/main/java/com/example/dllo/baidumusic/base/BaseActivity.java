@@ -15,8 +15,10 @@ public abstract class BaseActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         // 绑定布局
         setContentView(getLayout());
+
         // 初始化组件
         initViews();
+
         // 初始化数据
         initData();
     }

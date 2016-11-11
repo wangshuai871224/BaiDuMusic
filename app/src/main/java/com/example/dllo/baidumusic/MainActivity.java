@@ -9,17 +9,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.dllo.baidumusic.adapter.MainAdapter;
 import com.example.dllo.baidumusic.base.BaseActivity;
+import com.example.dllo.baidumusic.bean.PlayBean;
 import com.example.dllo.baidumusic.bean.StateBean;
 import com.example.dllo.baidumusic.dynamic.DynamicFragment;
+import com.example.dllo.baidumusic.events.ControlEvent;
 import com.example.dllo.baidumusic.fragment.FragmentSet;
 import com.example.dllo.baidumusic.fragment.PlayListFragment;
 import com.example.dllo.baidumusic.listener.ReplaceListener;
 import com.example.dllo.baidumusic.live.LiveFragment;
 import com.example.dllo.baidumusic.mine.MineFragment;
 import com.example.dllo.baidumusic.music.MusicFragment;
+import com.example.dllo.baidumusic.service.MusicPlayService;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -44,11 +48,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     private PlayListFragment playListFragment;
     private boolean isVisible = true;
     private MusicFragment musicFragment;
+  //  private MusicPlayService service;
 
     @Override
     protected void initData() {
 
-//        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
         adapter = new MainAdapter(getSupportFragmentManager());
         fragments = new ArrayList<>();
 
@@ -68,6 +73,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
 
     @Override
     protected void initViews() {
+
 
 
         mainLL = bindView(R.id.main_ll);
@@ -94,7 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -112,13 +118,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
                 break;
             case R.id.main_play:
 
-//                    play.setImageResource(R.mipmap.bt_minibar_pause_normal);
-
-//                    play.setImageResource(R.mipmap.bt_minibar_play_normal);
-
+                ControlEvent controlEvent = new ControlEvent(ControlEvent.PLAY_OR_STOP);
+                EventBus.getDefault().post(controlEvent);
 
                 break;
             case R.id.main_next:
+                ControlEvent controlEvent1 = new ControlEvent(ControlEvent.PLAY_NEXT);
+                EventBus.getDefault().post(controlEvent1);
                 break;
             case R.id.main_playList:
                 playList();
@@ -126,6 +132,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
             case R.id.main_ll:
                 mainLL.getBackground().setAlpha(1 / 2);
                 break;
+        }
+    }
+
+    // 接收从服务里穿过来的状态
+    @Subscribe
+    public void state(StateBean stateBean) {
+        int state = stateBean.getState();
+        switch (state) {
+            case StateBean.PAUSE_PICTURE:
+                play.setImageResource(R.mipmap.bt_minibar_pause_normal);
+                break;
+            case StateBean.PLAY_PICTURE:
+                play.setImageResource(R.mipmap.bt_minibar_play_normal);
+                break;
+
         }
     }
 
