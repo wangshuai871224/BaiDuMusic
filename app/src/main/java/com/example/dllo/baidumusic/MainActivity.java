@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dllo.baidumusic.adapter.MainAdapter;
 import com.example.dllo.baidumusic.base.BaseActivity;
+import com.example.dllo.baidumusic.bean.MusicItemBean;
 import com.example.dllo.baidumusic.bean.PlayBean;
 import com.example.dllo.baidumusic.bean.StateBean;
 import com.example.dllo.baidumusic.dynamic.DynamicFragment;
@@ -24,6 +26,7 @@ import com.example.dllo.baidumusic.live.LiveFragment;
 import com.example.dllo.baidumusic.mine.MineFragment;
 import com.example.dllo.baidumusic.music.MusicFragment;
 import com.example.dllo.baidumusic.service.MusicPlayService;
+import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -34,6 +37,7 @@ import java.util.ArrayList;
 public class MainActivity extends BaseActivity implements View.OnClickListener,ReplaceListener{
 
     private ImageView imageView;
+    private TextView playNmae;
     private ImageView set;
     private ImageView query;
     private ViewPager mainVP;
@@ -48,7 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
     private PlayListFragment playListFragment;
     private boolean isVisible = true;
     private MusicFragment musicFragment;
-  //  private MusicPlayService service;
+
 
     @Override
     protected void initData() {
@@ -82,6 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
         set = bindView(R.id.main_set);
         query = bindView(R.id.main_query);
         imageView = bindView(R.id.main_image);
+        playNmae = bindView(R.id.play_name);
         play = bindView(R.id.main_play);
         next = bindView(R.id.main_next);
         playList = bindView(R.id.main_playList);
@@ -91,6 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
         setClick(this, mainLL, set, query, imageView, play, next, playList);
 
     }
+
 
     @Override
     protected int getLayout() {
@@ -149,8 +155,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,R
 
         }
     }
-
-
 
 
     public void playList(){

@@ -46,7 +46,7 @@ public class PlayListFragment extends BaseFragment implements View.OnClickListen
         setClick(this, frameLayout);
     }
 
-    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void getBeanArrayList(BeanArrayList arrayList){
         adapter.setArrayList(arrayList.getBeanArrayList());
         playList.setAdapter(adapter);

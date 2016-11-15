@@ -75,6 +75,7 @@
                     android:src="@mipmap/default_album_playing_new" />
 
                 <TextView
+                    android:id="@+id/play_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

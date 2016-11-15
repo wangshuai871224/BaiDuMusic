@@ -51,6 +51,7 @@ public class PlayListAdapter extends BaseAdapter{
             @Override
             public void onClick(View view) {
                 //TODO 把该音乐给播放器赋值(图片, 歌词等)
+
             }
         });
 

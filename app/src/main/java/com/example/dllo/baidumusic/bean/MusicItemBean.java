@@ -11,6 +11,15 @@ public class MusicItemBean {
     private String songUrl;
     private String lyrics;
     private String image;
+    private int i;
+
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
 
     public String getImage() {
         return image;

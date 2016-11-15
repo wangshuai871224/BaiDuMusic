@@ -98,7 +98,7 @@ public class PlayFragment extends BaseFragment{
     public void eventBusBean(EventBusBean eventBusBean) {
         url = URLValues.MUSIC_PLAYLIST_LIST_FRONT + eventBusBean.getUrl()
                 + URLValues.MUSIC_PLAYLIST_LIST_BEHIND;
-//        Log.d("PlayFragment", url);
+        Log.d("PlayFragment", url);
         commond(url);
     }
 

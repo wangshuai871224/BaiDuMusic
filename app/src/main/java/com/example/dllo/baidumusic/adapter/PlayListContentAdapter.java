@@ -3,6 +3,7 @@ package com.example.dllo.baidumusic.adapter;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Toast;
 
@@ -52,21 +53,23 @@ public class PlayListContentAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         CommonVH commonVH = CommonVH.getViewHolder(view, viewGroup, R.layout.content_list);
         commonVH.setText(R.id.content_title, beans.get(i).getTitle());
         commonVH.setText(R.id.content_author, beans.get(i).getAuthor());
 
         final String url = URLValues.MUSIC_PLAY_FRONT + beans.get(i).getSongId() + URLValues.MUSIC_PLAY_BEHIND;
 //        Log.d("PlayListContent", url);
+
         commonVH.setItemClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 把集合放到一个类里在用EventBus传送
                 BeanArrayList array = new BeanArrayList();
                 array.setBeanArrayList(beans);
-                EventBus.getDefault().postSticky(array);
-                getPlayUrl(url);
+                EventBus.getDefault().post(array);
+
+                getPlayUrl(url, i);
             }
         });
 
@@ -74,7 +77,7 @@ public class PlayListContentAdapter extends BaseAdapter {
     }
 
 
-    public void getPlayUrl(String s) {
+    public void getPlayUrl(String s, final int i) {
         GsonRequest<PlayBean> gsonRequest = new GsonRequest<PlayBean>(PlayBean.class, s, new Response.Listener<PlayBean>() {
             @Override
             public void onResponse(PlayBean response) {
@@ -85,7 +88,7 @@ public class PlayListContentAdapter extends BaseAdapter {
                 itemBean.setLyrics(response.getSonginfo().getLrclink());
                 itemBean.setImage(response.getSonginfo().getPic_small());
                 itemBean.setSongUrl(response.getBitrate().getFile_link());
-
+                itemBean.setI(i);
                 EventBus.getDefault().post(itemBean);
 
             }
